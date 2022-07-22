@@ -1,6 +1,4 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 export default function Home({ posts }) {
   console.log("I am on the client");
@@ -10,9 +8,11 @@ export default function Home({ posts }) {
     <div>
       {posts &&
         posts.map((post) => (
-          <div key={post.id}>
-            <h2>{post.attributes.Title}</h2>
-          </div>
+          <Link href={`/${post.attributes.Slug}`} key={post.id}>
+            <a key={post.id}>
+              <h2>{post.attributes.Title}</h2>
+            </a>
+          </Link>
         ))}
     </div>
   );
